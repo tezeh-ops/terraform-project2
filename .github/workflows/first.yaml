@@ -1,5 +1,5 @@
 name: shell commands
-on:
+on:       # below push is the "event" 
  - push
 
 jobs:
@@ -13,4 +13,9 @@ jobs:
          pwd
          node -v
          ls -a
+    - name: python command
+      run: |                 # below we are importing the python platform and print it out it platform porcessor
+         import platform 
+         print(platform.processor())
+      shell: python     
  
