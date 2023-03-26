@@ -1,6 +1,10 @@
 name: shell commands
 on:       # below push is the "event" 
- - push
+  - push
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }} 
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }} 
+
 
 jobs:
   run-shell-commands:
@@ -15,7 +19,13 @@ jobs:
       - name: Terraform init
         run: terraform init
       - name: Terraform validate
-        run: terraform validate  
+        run: terraform validate
+      - name: Terraform plan
+        run:  terraform plan
+      - name: Terraform apply
+        run: terraform apply -auto-approve
+      - name: Terraform destroy
+        run: terraform destroy -auto-approve        
       - name: multi line string
         run: |
           pwd
