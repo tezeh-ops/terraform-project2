@@ -17,5 +17,12 @@ jobs:
       run: |                 # below we are importing the python platform and print it out it platform porcessor
          import platform 
          print(platform.processor())
-      shell: python     
+      shell: python
+ run-windows-commands:
+  runs-on: windows-latest
+  steps:
+    - name: Directory
+      run: pwd
+      shell: bash        
+
  
