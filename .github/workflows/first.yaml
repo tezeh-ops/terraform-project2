@@ -11,6 +11,6 @@ jobs:
     - name: multi line string
       run: |
          pwd
-         node -y
+         node -v
          ls -a
  
