@@ -6,24 +6,9 @@ jobs:
   run-shell-commands:
     runs-on: ubuntu-latest
     steps:
-      - name: echo string
-        run: echo "hello"
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: multi line string
         run: |
           pwd
-          node -v
           ls -a
-      - name: python command
-        run: |                 # below we are importing the python platform and print it out it platform porcessor
-          import platform 
-          print(platform.processor())
-        shell: python
-  run-windows-commands:
-    runs-on: windows-latest
-    needs: ["run-shell-commands"]
-    steps:
-      - name: Directory
-        run: pwd
-        shell: bash        
-
- 
