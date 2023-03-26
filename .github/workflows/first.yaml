@@ -1,0 +1,16 @@
+name: shell commands
+on:
+ - push
+
+jobs:
+ run-shell-commands:
+  run-on: ubuntu-latest
+  steps:
+    - name: echo string
+      run: echo "hello"
+    - name: multi line string
+      run: |
+         pwd
+         node -y
+         ls -a
+ 
