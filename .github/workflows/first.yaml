@@ -7,13 +7,18 @@ env:
 
 
 jobs:
-  run-shell-commands:
+  terraform-workflow: # the job here is to give permissions to semantic tobe able to write the tags
+    permissions:       # the job here is to give permissions to semantic tobe able to write the tags
+      contents: write   # modify content
+      issues: write      # modify issues
+      pull-requests: write # modify pull request
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - name: checkout
+        uses: actions/checkout@v1 # clone a repository
       - name: Set Terraform
-        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v2  
+    runs-on: ubuntu-latest
         with:
           terraform_version: 1.1.9
       - name: Terraform init
