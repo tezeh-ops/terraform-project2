@@ -39,6 +39,6 @@ terraform {               #  Configure Terraform to point to this backend
   backend "s3" {
     bucket         = "bootcamp-30-7-tez"    # the name of your bucket
     key            = "terraform.tfstate"
-    region         = "us-east-1"      
+    region         = "us-east-2"      
   }
 }    
