@@ -34,5 +34,5 @@ jobs:
        # run: terraform destroy -auto-approve              
       - name: release
         run: npx semantic-release
-        #env:
-          #GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}      # by default this token is already avialabel we don't need to creat it again 
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}      # by default this token is already avialabel we don't need to creat it again 
