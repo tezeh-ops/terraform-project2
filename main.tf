@@ -28,7 +28,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "tez_s3" {
 }
 
 resource "aws_vpc" "actions" {
-  cidr_block       = "10.0.0.0/24"
+  cidr_block       = "10.10.0.0/24"
 
     tags = {
     Name = "class30"
