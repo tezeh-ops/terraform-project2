@@ -21,17 +21,18 @@ jobs:
         with:
           terraform_version: 1.1.9
       - name: Terraform init
-        run: terraform init  -force-copy
+        run: terraform init  -force-copy # -force-copy flag is the cpoy our .tfstate into our s3 in aws 
       - name: Terraform validate
         run: terraform validate
       - name: Terraform plan
-        run:  terraform plan
-      - name: Terraform apply
-        run: terraform apply -auto-approve
-      #- name: Terraform destroy
-       # run: terraform destroy -auto-approve 
-        #if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/dev'                         
+        run:  terraform plan                         
       - name: release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}      # by default this token is already avialabel we don't need to creat it again 
+      - name: Terraform apply
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: terraform apply -auto-approve
+      #- name: Terraform destroy
+       # run: terraform destroy -auto-approve     
