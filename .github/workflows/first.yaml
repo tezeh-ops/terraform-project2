@@ -27,12 +27,12 @@ jobs:
       - name: Terraform plan
         run:  terraform plan                         
       - name: release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}      # by default this token is already avialabel we don't need to creat it again 
       - name: Terraform apply
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
         run: terraform apply -auto-approve
       #- name: Terraform destroy
        # run: terraform destroy -auto-approve     
