@@ -6,4 +6,11 @@ terraform {
   }
 }
 
+provider "aws"  {
+    region = "us-east-2"
+    #default = "default"
+}
 
+provider "aws" {
+  region = "us-west-1"
+}  

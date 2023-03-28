@@ -1,5 +1,5 @@
 module.exports = {
-    branches: "master",
+    branches: "dev",
     repositoryUrl: "https://github.com/tezeh-ops/terraform-project2",
     plugins: [
       '@semantic-release/commit-analyzer',
