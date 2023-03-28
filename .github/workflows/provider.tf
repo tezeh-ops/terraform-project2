@@ -11,3 +11,6 @@ provider "aws"  {
     #default = "default"
 }
 
+provider "aws" {
+  region = "us-west-1"
+}  

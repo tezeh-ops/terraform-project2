@@ -28,13 +28,19 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "tez_s3" {
 }
 
 resource "aws_vpc" "actions" {
+<<<<<<< HEAD
   cidr_block       = "10.0.0.0/16"
+=======
+  cidr_block       = "10.0.0.0/24"
+>>>>>>> 2640090 (feat: Modified cidr)
     tags = {
     Name = "class30"
     Team = "DevOps"
+    Environment = "prod"
   }
 }
 
+<<<<<<< HEAD
 terraform {               #  Configure Terraform to point to this backend        
   backend "s3" {
     bucket         = "bootcamp-30-7-tez"    # the name of your bucket
@@ -42,3 +48,11 @@ terraform {               #  Configure Terraform to point to this backend
     region         = "us-east-2"      
   }
 }    
+=======
+backend "s3" {
+  bucket = "bootcamp-30-7-tez"
+  key = "prod/terraform.tfstate"
+  region = "us-west-1"
+
+}
+>>>>>>> 2640090 (feat: Modified cidr)
